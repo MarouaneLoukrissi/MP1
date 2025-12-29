@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = "hassanlahlami1/refactored-finance-app"
+        DOCKER_IMAGE = "marouaneloukrissi/mp1"
         DOCKER_TAG   = "${BUILD_NUMBER}"
         GIT_MAIN     = "master"
         GIT_TEST     = "test"
@@ -64,7 +64,7 @@ pipeline {
             }
         }
 
-        stage('Merge test → main') {
+        stage('Merge test -> main') {
             steps {
                 bat """
                 git checkout ${GIT_MAIN}
@@ -103,7 +103,7 @@ pipeline {
 
     post {
         success {
-            echo 'Tests validés → merge main + image Docker pushée'
+            echo 'Tests validés -> merge main + image Docker pushée'
         }
         failure {
             echo 'Pipeline arrêté (tests / qualité non validés)'
