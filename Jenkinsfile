@@ -71,7 +71,6 @@ pipeline {
 
         stage('Merge test -> main') {
             steps {
-                // Use GitHub credentials so the push to master works
                 withCredentials([usernamePassword(
                     credentialsId: 'GitHub-secret',
                     usernameVariable: 'GH_USER',
@@ -85,7 +84,7 @@ pipeline {
                     git pull origin %GIT_MAIN%
                     git merge %GIT_TEST%
 
-                    git remote set-url origin https://%GH_USER%:%GH_TOKEN%@github.com/%GH_USER%/mp1.git
+                    git remote set-url origin https://%GH_USER%:%GH_TOKEN%@github.com/MarouaneLoukrissi/mp1.git
                     git push origin %GIT_MAIN%
                     """
                 }
