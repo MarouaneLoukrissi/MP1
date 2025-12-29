@@ -9,7 +9,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "marouaneloukrissi/mp1"
         DOCKER_TAG   = "${BUILD_NUMBER}"
-        GIT_MAIN     = "master"
+        GIT_MAIN     = "main"
         GIT_TEST     = "test"
     }
 
